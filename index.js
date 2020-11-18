@@ -2,31 +2,28 @@
 
 module.exports = class Loading {
     target;
-    constructor(target) {
-        this.target = target;
 
-        this.loadingBy();
+    #loading_by_obj(){
+        this.#manage_loading(this.target);
     }
 
-    loading_by_obj(){
-        this.manage_loading(this.target);
-    }
-
-    loading_by_objs(){
+    #loading_by_objs(){
         for(let element of this.target){
-            this.manage_loading(element);
+            this.#manage_loading(element);
         }
     }
 
-    loading_by_id(){
-        this.manage_loading(document.getElementById(this.target));
+    #loading_by_selector(){
+        this.target = document.querySelector(this.target)
+        this.#manageObjectTarget()
     }
 
-    manage_loading(target_element){
+    #manage_loading(target_element){
         if(!target_element) return ;
 
         if(!target_element.classList.contains('overlay-container')){
             target_element.classList.add('overlay-container');
+            target_element.disabled = true;
 
             let overlay_node = document.createElement('div');
             overlay_node.classList.add('my-overlay');
@@ -38,16 +35,23 @@ module.exports = class Loading {
         }else{
             target_element.classList.remove('overlay-container');
             target_element.getElementsByClassName('my-overlay')[0].remove();
+            target_element.disabled = false;
         }
     }
 
-    loadingBy(){
+    loadingBy(target){
+        this.target = target;
+
         if(typeof this.target === "object"){
-            this.target.length ? this.loading_by_objs() : this.loading_by_obj()
+            this.#manageObjectTarget()
         }else if(typeof this.target === 'string'){
-            this.loading_by_id();
+            this.#loading_by_selector();
         }else{
-            console.log('Loading error: Type is unknown...', this.target)
+            console.log('Show loading Error: target is type not support ....')
         }
+    }
+
+    #manageObjectTarget(){
+        this.target.length ? this.#loading_by_objs() : this.#loading_by_obj()
     }
 }

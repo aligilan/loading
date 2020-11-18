@@ -39,7 +39,7 @@ module.exports = class Loading {
         }
     }
 
-    loadingBy(target){
+    toggleLoading(target){
         this.target = target;
 
         if(typeof this.target === "object"){

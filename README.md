@@ -6,7 +6,10 @@ Very simple and light-weight loading with vanilla-js
 `npm install @aligilan/loading --save`
 
 # How to use
+### Import style
 Add `@aligilan/loading/style.css` in header. <br>
+Or <br>
+In your sass file add `@import "~@aligilan/loading/style.css";`
 
 Then add below js: <br>
 `let loading = require('@alilan/loading');` <br>

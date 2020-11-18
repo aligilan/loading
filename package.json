@@ -1,0 +1,25 @@
+{
+  "name": "@aligilan/loading",
+  "version": "1.0.0",
+  "description": "Very light-weight loading package with vanillajs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aligilan/loading.git"
+  },
+  "keywords": [
+    "loading",
+    "overlay-loading",
+    "vanilla-js",
+    "js"
+  ],
+  "author": "!lV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aligilan/loading/issues"
+  },
+  "homepage": "https://github.com/aligilan/loading"
+}

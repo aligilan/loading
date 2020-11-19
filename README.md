@@ -6,17 +6,43 @@ Very simple and light-weight loading with vanilla-js
 `npm install @aligilan/loading --save`
 
 # How to use
-### Import style
+####1- Import style
 Add `@aligilan/loading/style.css` in header. <br>
 Or <br>
 In your sass file add `@import "~@aligilan/loading/style.css";`
 
-Then add below js: <br>
+---
+
+####2- Import js
+
 `let loading = require('@alilan/loading');` <br>
-`let myLoading_obj = new loading();` <br>
-`myLoading_obj.toggle(target)`
+`let normal_loading = new loading();` <br>
+`normal_loading.toggle(target)`
 
-> target: Is loading argument that can be query-select-string, element-object, element-objects
+---
 
-Now when ever call `myloading_obj.toggle(target)`, for first time, that shows loading-spinner (spinner with overlay are inside the target and isn't clickable)
+##### In Laravel:
+Import:
+>path: resources/app.js
+>`window.Loading = require('@aligilan/loading');` <br>
+>In your page script tag:
+>`let normal_loading = new window.Loading;`
+
+Example: <br>
+>Use in header tag, when DOM is ready <br>
+`document.addEventListener("DOMContentLoaded", function(){
+    normal_loading.toggle('#my-element')
+});`
+
+>Use when window loaded: <br>
+`window.onload = function(){
+    normal_loading.toggle('#my-element')
+}`
+
+---
+
+> `target`  
+>Valid target element types are: query-select-string, element-object, element-objects
+
+Now when ever call `normal_loading.toggle(target)`, for first time, that shows loading-spinner (spinner with overlay are inside the target and isn't clickable)
 and at the next call loading-spinner will disappear.

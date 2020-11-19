@@ -1,24 +1,22 @@
-'use strict';
+'use strict'
 
 module.exports = class Loading {
-    target;
-
-    #loading_by_obj(){
-        this.#manage_loading(this.target);
+    loading_by_obj(){
+        this.manage_loading(this.target);
     }
 
-    #loading_by_objs(){
+    loading_by_objs(){
         for(let element of this.target){
-            this.#manage_loading(element);
+            this.manage_loading(element);
         }
     }
 
-    #loading_by_selector(){
+    loading_by_selector(){
         this.target = document.querySelector(this.target)
-        this.#manageObjectTarget()
+        this.manageObjectTarget()
     }
 
-    #manage_loading(target_element){
+    manage_loading(target_element){
         if(!target_element) return ;
 
         if(!target_element.classList.contains('overlay-container')){
@@ -39,19 +37,19 @@ module.exports = class Loading {
         }
     }
 
-    toggleLoading(target){
+    toggle(target){
         this.target = target;
 
         if(typeof this.target === "object"){
-            this.#manageObjectTarget()
+            this.manageObjectTarget()
         }else if(typeof this.target === 'string'){
-            this.#loading_by_selector();
+            this.loading_by_selector();
         }else{
             console.log('Show loading Error: target is type not support ....')
         }
     }
 
-    #manageObjectTarget(){
-        this.target.length ? this.#loading_by_objs() : this.#loading_by_obj()
+    manageObjectTarget(){
+        this.target && this.target.length ? this.loading_by_objs() : this.loading_by_obj()
     }
 }

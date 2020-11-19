@@ -14,9 +14,9 @@ In your sass file add `@import "~@aligilan/loading/style.css";`
 Then add below js: <br>
 `let loading = require('@alilan/loading');` <br>
 `let myLoading_obj = new loading();` <br>
-`myLoading_obj.toggleLoading(target)`
+`myLoading_obj.toggle(target)`
 
 > target: Is loading argument that can be query-select-string, element-object, element-objects
 
-Now when ever call `myloading_obj.toggleLoading()`, for first time, that shows loading-spinner (spinner with overlay are inside the target and isn't clickable)
+Now when ever call `myloading_obj.toggle(target)`, for first time, that shows loading-spinner (spinner with overlay are inside the target and isn't clickable)
 and at the next call loading-spinner will disappear.

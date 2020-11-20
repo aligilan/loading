@@ -34,6 +34,8 @@ Example: <br>
     normal_loading.toggle('#my-element')
 });`
 
+Or
+
 >Use when window loaded: <br>
 `window.onload = function(){
     normal_loading.toggle('#my-element')

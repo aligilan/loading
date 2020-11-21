@@ -1,6 +1,6 @@
 {
   "name": "@aligilan/loading",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Very light-weight loading package with vanillajs",
   "main": "index.js",
   "scripts": {

@@ -21,7 +21,6 @@ module.exports = class Loading {
 
         if(!target_element.classList.contains('overlay-container')){
             target_element.classList.add('overlay-container');
-            target_element.disabled = true;
 
             let overlay_node = document.createElement('div');
             overlay_node.classList.add('my-overlay');
@@ -33,7 +32,6 @@ module.exports = class Loading {
         }else{
             target_element.classList.remove('overlay-container');
             target_element.getElementsByClassName('my-overlay')[0].remove();
-            target_element.disabled = false;
         }
     }
 

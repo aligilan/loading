@@ -19,6 +19,9 @@ module.exports = class Loading {
     manage_loading(target_element){
         if(!target_element) return ;
 
+        // Disable button on loading
+        this.manage_button(target_element)
+
         if(!target_element.classList.contains('overlay-container')){
             target_element.classList.add('overlay-container');
 
@@ -32,6 +35,14 @@ module.exports = class Loading {
         }else{
             target_element.classList.remove('overlay-container');
             target_element.getElementsByClassName('my-overlay')[0].remove();
+        }
+    }
+
+    manage_button(target_element){
+        if(!target_element) return ;
+
+        if(target_element.nodeName == 'button' || target_element.type == 'submit'){
+            target_element.disabled = !!!target_element.classList.contains('overlay-container')
         }
     }
 

@@ -1,19 +1,9 @@
 'use strict'
 
 module.exports = class Loading {
-    loading_by_obj(){
-        this.manage_loading(this.target);
-    }
-
-    loading_by_objs(){
-        for(let element of this.target){
-            this.manage_loading(element);
-        }
-    }
-
     loading_by_selector(){
         this.target = document.querySelector(this.target)
-        this.manageObjectTarget()
+        this.manage_loading(this.target)
     }
 
     manage_loading(target_element){
@@ -50,15 +40,11 @@ module.exports = class Loading {
         this.target = target;
 
         if(typeof this.target === "object"){
-            this.manageObjectTarget()
+            this.manage_loading(this.target)
         }else if(typeof this.target === 'string'){
             this.loading_by_selector();
         }else{
             console.log('Show loading Error: target is type not support ....')
         }
-    }
-
-    manageObjectTarget(){
-        this.target && this.target.length ? this.loading_by_objs() : this.loading_by_obj()
     }
 }

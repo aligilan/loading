@@ -24,7 +24,10 @@ module.exports = class Loading {
 
         }else{
             target_element.classList.remove('overlay-container');
-            target_element.getElementsByClassName('my-overlay')[0].remove();
+            let my_overlay = target_element.getElementsByClassName('my-overlay')[0];
+
+            if(!!my_overlay)
+                my_overlay.remove();
         }
     }
 

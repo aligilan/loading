@@ -47,4 +47,6 @@ Or
 >Valid target element types are: query-select-string, element-object, element-objects
 
 Now when ever call `normal_loading.toggle(target)`, for first time, that shows loading-spinner (spinner with overlay are inside the target and isn't clickable)
-and at the next call loading-spinner will disappear.
+and at the next call loading-spinner will disappear. 
+
+Or `normal_loading.show(target)` then `normal_loading.hide(target)` .
